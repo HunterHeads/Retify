@@ -1,7 +1,7 @@
 <template>
     <v-app style="background-color: #e8f1f7;">
         <notification-component />
-        <navigation-bar />
+        <navigation-bar v-if="isLogged"/>
 
         <v-content>
             <v-container fluid>

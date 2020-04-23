@@ -8,7 +8,6 @@
         clipped
         :color="color"
         :expand-on-hover="expandOnHover"
-        :mini-variant="Variantmini"
         :src="bg"
         absolute
         dark

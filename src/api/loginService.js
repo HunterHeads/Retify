@@ -1,14 +1,25 @@
-// import store from "../store";
+import store from "../store";
+import router from "../router";
 import axios from "axios";
 const serverUrl = "http://localhost:8000";
+import { NotificationType } from "../enums/NotificationTypeEnum";
+import { showNotification } from "../common/utils/utils";
 
-export async function register(user) {
+export async function register(username, password) {
     axios(`${serverUrl}/api/retify/register`, {
         method: "POST",
-        data: { user },
+        data: { username, password },
         withCredentials: true,
     }).then((response) => {
-        console.log(response.data);
+        if (response.status !== 200) {
+            showNotification(response.data, NotificationType.ERROR);
+            return;
+        }
+        store.dispatch("authenticationStore/login");
+        router.push("dashboard").catch((err) => {
+            console.log(err);
+        });
+        showNotification("You succesfully signed up", NotificationType.SUCCESS);
     });
 }
 
@@ -18,7 +29,15 @@ export async function login(username, password) {
         data: { username, password },
         withCredentials: true,
     }).then((response) => {
-        console.log(response.data);
+        if (response.status !== 200) {
+            showNotification(response.data, NotificationType.ERROR);
+            return;
+        }
+        store.dispatch("authenticationStore/login", username);
+        router.push("dashboard").catch((err) => {
+            console.log(err);
+        });
+        showNotification("You succesfully logged in", NotificationType.SUCCESS);
     });
 }
 
@@ -30,7 +49,14 @@ export async function logout() {
     axios(`${serverUrl}/api/retify/logout`, {
         method: "GET",
         withCredentials: true,
-    }).then((response) => {
-        console.log(response.data);
+    }).then(() => {
+        store.dispatch("authenticationStore/logout");
+        router.push("login").catch((err) => {
+            console.log(err);
+        });
+        showNotification(
+            "You succesfully logged out",
+            NotificationType.SUCCESS
+        );
     });
 }

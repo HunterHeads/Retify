@@ -8,7 +8,7 @@ export default {
                 {
                     title: "Strona główna",
                     icon: "$vuetify.icons.dash",
-                    to: "/dash",
+                    to: "/dashboard",
                 },
                 { title: "Najlepsze", icon: "$vuetify.icons.star", to: "/top" },
                 {
