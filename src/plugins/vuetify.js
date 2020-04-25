@@ -17,6 +17,7 @@ export default new Vuetify({
       logout: 'mdi-location-exit',
       more: 'mdi-more',
       song: 'mdi-music-circle',
+      account: 'mdi-account-circle',
     },
   },
 });

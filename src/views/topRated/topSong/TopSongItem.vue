@@ -1,0 +1,27 @@
+<template>
+	<div class="topItem">
+		<v-list-item-avatar>
+			<v-icon color="blue" large>$vuetify.icons.song</v-icon>
+		</v-list-item-avatar>
+		<v-list-item-content class="text-left">
+			<v-list-item-title v-html="topSong.title" />
+			<v-list-item-subtitle v-html="topSong.author" />
+			<v-list-item-subtitle v-html="ratesCountPrintable" />
+		</v-list-item-content>
+		<v-rating
+			v-model="topSong.average"
+			:length="5"
+			empty-icon="mdi-heart-outline"
+			full-icon="mdi-heart"
+			half-icon="mdi-heart-half-full"
+			:half-increments="true"
+			:hover="false"
+			:readonly="true"
+			:size="12"
+			:dense="false"
+			color="red lighten-1"
+			background-color="red lighten-3"
+		></v-rating>
+	</div>
+</template>
+<script src="./TopSongItemScript.js"></script>

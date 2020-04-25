@@ -1,9 +1,7 @@
 <template>
 	<v-hover v-slot:default="{ hover }">
 		<v-card class="ml-8" :elevation="hover ? 8 : 2">
-			<v-card-text class="font-weight-medium text-center title">
-				{{ cardTitle }}
-			</v-card-text>
+			<div class="cardTitle">{{ cardTitle }}</div>
 			<v-divider></v-divider>
 			<div class="cardContent">
 				<slot />
