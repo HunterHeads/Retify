@@ -10,4 +10,9 @@ export default {
       return `ilość ocen: ${this.topSong.ratesCount}`;
     },
   },
+  methods: {
+    onClick() {
+      //todo implement
+    }
+  }
 };

@@ -1,5 +1,5 @@
 <template>
-	<div class="topItem">
+	<div class="topItem" @click="onClick">
 		<v-list-item-avatar>
 			<v-icon color="blue" large>$vuetify.icons.account</v-icon>
 		</v-list-item-avatar>

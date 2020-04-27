@@ -1,11 +1,11 @@
 <template>
-	<div class="topItem">
+	<div class="topItem" @click="onClick">
 		<v-list-item-avatar>
 			<v-icon color="blue" large>$vuetify.icons.song</v-icon>
 		</v-list-item-avatar>
 		<v-list-item-content class="text-left">
 			<v-list-item-title v-html="topSong.title" />
-			<v-list-item-subtitle v-html="topSong.author" />
+			<v-list-item-subtitle v-html="topSong.artist" />
 			<v-list-item-subtitle v-html="ratesCountPrintable" />
 		</v-list-item-content>
 		<v-rating
