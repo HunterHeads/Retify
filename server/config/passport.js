@@ -32,23 +32,26 @@ passport.use(
         function(accessToken, refreshToken, expires_in, profile, done) {
             // asynchronous verification, for effect...
             process.nextTick(function() {
-                const email = profile.emails[0].value;
-                const user = users.find((obj) => obj.username === email);
-                if (!user) {
-                    const newUser = {
-                        id: Math.max(...users.map((obj) => obj.id)) + 1,
-                        username: email,
-                        spotifyId: profile.id,
-                        accessToken,
-                        refreshToken,
-                    };
-                    users.push(newUser).catch((err) => {
-                        console.log(err);
-                    });
-                    return done(null, newUser);
-                }
-                // TODO: logic must be different
-                return done(null, user);
+            const email = profile.emails[0].value;
+            
+            mongo.checkCredentialsCorrectness(email, password, function(err,user) {
+                    if (!user) {
+                        mongo.registerUser(
+                            email,
+                            profile.id, //spotifyId
+                            function (err, inserted) {
+                                if (!err) {
+                                    return done(null, inserted);
+                                } else {
+                                    return done(null, false, {
+                                        message: `Unable to create user.`,
+                                    });
+                                }
+                            }
+                        );
+                    }
+                    return done(null, user);
+                });
             });
         }
     )

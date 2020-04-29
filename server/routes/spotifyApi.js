@@ -16,6 +16,21 @@ router.get(
             "playlist-read-private",
         ],
         failureRedirect: "http://localhost:8080/#/login",
+    }, (err, user, info) => {
+        if (info) {
+            return res.status(401).send(info.message);
+        }
+        if (err) {
+            return next(err);
+        }
+        req.login(user, (err) => {
+            if (err) {
+                return next(err);
+            }
+            return res
+                .status(200)
+                .send("LOGGED IN - sessionId is saved within cookie");
+        });
     })
 );
 

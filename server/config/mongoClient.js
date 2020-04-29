@@ -20,6 +20,7 @@ const client = {
 
   getCollection: async function (collectionName) {
     const databaseConnection = await client.getDB();
+    
     return databaseConnection.db(DB_NAME).collection(collectionName);
   },
 
@@ -117,6 +118,52 @@ const client = {
           $group: {
             _id: songId,
             average: { $avg: "$rate" }
+          }
+        },
+      ]).next(callback)
+  },
+
+  getSongRateForSpecificUser: async function (songId, userId, callback) {
+    const collection = await client.getCollection("SongsRates")
+
+    console.log(`getting rate for song: ${songId} and user: ${userId}`)
+    collection.aggregate(
+      [
+        {
+          $match: { 
+            "songId": songId,
+            "userId": userId,
+         }
+        },
+        {
+          $group: {
+            _id: null,
+            songId: {$first: "$songId"},
+            userId: {$first: "$userId"},
+            rate: {$first: "$rate"},
+          }
+        },
+      ]).next(callback)
+  },
+
+  getArtistRateForSpecificUser: async function (artistId, userId, callback) {
+    const collection = await client.getCollection("ArtistsRates")
+
+    console.log(`getting rate for song: ${artistId} and user: ${userId}`)
+    collection.aggregate(
+      [
+        {
+          $match: { 
+            "artistId": artistId,
+            "userId": userId,
+         }
+        },
+        {
+          $group: {
+            _id: null,
+            artistId: {$first: "$artistId"},
+            userId: {$first: "$userId"},
+            rate: {$first: "$rate"},
           }
         },
       ]).next(callback)
