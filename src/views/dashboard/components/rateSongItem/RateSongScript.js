@@ -1,4 +1,4 @@
-import { rateSong } from "../../../../api";
+import { rateSong, getArtistData } from "../../../../api";
 export default {
     props: {
         song: Object,
@@ -13,7 +13,8 @@ export default {
         // if(rate)
     },
     methods: {
-        onRate(rate) {
+        async onRate(rate) {
+            console.log(await getArtistData("06HL4z0CvFAxyc27GXpf02"));
             rateSong(this.song.id, rate);
             // console.log(song);
         },

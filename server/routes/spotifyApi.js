@@ -55,6 +55,19 @@ router.get("/me/recently-played", (req, res) => {
     }
 });
 
+router.get("/me/songs", (req, res) => {
+    // console.log(req.user);
+    setTokens(req.user);
+    if (req.isAuthenticated()) {
+        spotifyApi
+            .getMySavedTracks()
+            .then((data) => res.send(data.body))
+            .catch((err) => res.send(err));
+    } else {
+        res.status(401).send("UNAUTHORIZED!");
+    }
+});
+
 router.get("/artists/:id/albums", (req, res) => {
     console.log(req.params.id);
     if (req.isAuthenticated()) {
@@ -68,7 +81,7 @@ router.get("/artists/:id/albums", (req, res) => {
     }
 });
 
-router.get("/albums/:id/tracks", (req, res) => {
+router.get("/albums/:id/songs", (req, res) => {
     console.log(req.params.id);
     if (req.isAuthenticated()) {
         setTokens(req.user);
@@ -76,6 +89,32 @@ router.get("/albums/:id/tracks", (req, res) => {
             .getAlbum(req.params.id)
             .then((data) => data.body.tracks.map((track) => track.id))
             .then((trackIds) => spotifyApi.getTracks(trackIds))
+            .then((data) => res.send(data.body))
+            .catch((err) => res.send(err));
+    } else {
+        res.status(401).send("UNAUTHORIZED!");
+    }
+});
+
+router.get("/songs/:id", (req, res) => {
+    console.log(req.params.id);
+    if (req.isAuthenticated()) {
+        setTokens(req.user);
+        spotifyApi
+            .getTrack(req.params.id)
+            .then((data) => res.send(data.body))
+            .catch((err) => res.send(err));
+    } else {
+        res.status(401).send("UNAUTHORIZED!");
+    }
+});
+
+router.get("/artists/:id", (req, res) => {
+    console.log(req.params.id);
+    if (req.isAuthenticated()) {
+        setTokens(req.user);
+        spotifyApi
+            .getArtist(req.params.id)
             .then((data) => res.send(data.body))
             .catch((err) => res.send(err));
     } else {

@@ -28,7 +28,7 @@ export default {
                 {
                     title: "Słuchaj",
                     icon: "$vuetify.icons.play",
-                    to: "/playMusic",
+                    to: "/play",
                 },
                 {
                     title: "Ustawienia",

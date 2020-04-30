@@ -1,8 +1,26 @@
 import axios from "axios";
 const serverUrl = "http://localhost:8000";
 
-export async function getAlbumTracks(id) {
-    axios(`${serverUrl}/api/spotify/album/${id}/tracks`, {
+export async function getAlbumSongs(id) {
+    axios(`${serverUrl}/api/spotify/albums/${id}/songs`, {
+        method: "GET",
+        withCredentials: true,
+    }).then((response) => {
+        console.log(response.data);
+    });
+}
+
+export async function getArtistData(id) {
+    axios(`${serverUrl}/api/spotify/artists/${id}`, {
+        method: "GET",
+        withCredentials: true,
+    }).then((response) => {
+        console.log(response.data);
+    });
+}
+
+export async function getSongData(id) {
+    axios(`${serverUrl}/api/spotify/songs/${id}`, {
         method: "GET",
         withCredentials: true,
     }).then((response) => {

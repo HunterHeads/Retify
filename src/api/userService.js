@@ -12,6 +12,16 @@ export async function getMyRecentlyPlayedTracks() {
     });
 }
 
+export async function getMySavedTracks() {
+    return axios(`${serverUrl}/api/spotify/me/songs`, {
+        method: "GET",
+        withCredentials: true,
+    }).then((response) => {
+        console.log(response.data);
+        return response.data;
+    });
+}
+
 export async function getMyData() {
     return axios(`${serverUrl}/api/spotify/me`, {
         method: "GET",
