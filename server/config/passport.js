@@ -6,12 +6,6 @@ const mongo = require("../config/mongoClient").client;
 const cliendId = "01577be964124996a91fb11fd24b7c56";
 const clientSecret = "8600089034414dbf9a292821c461f9e9";
 
-// database needs to be implemented
-const users = [
-    { id: 0, username: "test@test.com", password: "password" },
-    { id: 1, username: "test2@test.com", password: "password2" },
-];
-
 passport.serializeUser(function(user, done) {
     done(null, user);
 });
@@ -32,14 +26,16 @@ passport.use(
         function(accessToken, refreshToken, expires_in, profile, done) {
             // asynchronous verification, for effect...
             process.nextTick(function() {
-            const email = profile.emails[0].value;
-            
-            mongo.checkCredentialsCorrectness(email, password, function(err,user) {
+                const email = profile.emails[0].value;
+
+                mongo.findUserByUserName(email, function(err, user) {
                     if (!user) {
                         mongo.registerUser(
                             email,
                             profile.id, //spotifyId
-                            function (err, inserted) {
+                            function(err, inserted) {
+                                inserted.refreshToken = refreshToken;
+                                inserted.accessToken = accessToken;
                                 if (!err) {
                                     return done(null, inserted);
                                 } else {
@@ -49,8 +45,11 @@ passport.use(
                                 }
                             }
                         );
+                    } else {
+                        user.accessToken = accessToken;
+                        user.refreshToken = refreshToken;
+                        return done(null, user);
                     }
-                    return done(null, user);
                 });
             });
         }

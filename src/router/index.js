@@ -39,6 +39,15 @@ const routes = [
         },
     },
     {
+        path: "/callback",
+        beforeEnter: () => {
+            store.dispatch("authenticationStore/login");
+            router.push("dashboard").catch((err) => {
+                console.log(err);
+            });
+        },
+    },
+    {
         path: "/",
         redirect: "/login",
     },
