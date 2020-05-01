@@ -1,0 +1,53 @@
+.container {
+  position: absolute;
+  display: flex;
+  flex: 1;
+  overflow-y: hidden;
+  margin: 0;
+  height: 100%;
+  background: url('https://cdn.mos.cms.futurecdn.net/FUCaUWjnxVNkHrpZMwerSY-1200-80.jpg')
+    no-repeat 100% 100% fixed;
+}
+
+.register {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 85%;
+  opacity: 0.9;
+  border-radius: 20px;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  flex: 1;
+  font-size: 40px;
+  padding: 15px;
+}
+
+.date {
+  font-size: 20px;
+  padding: 15px;
+  text-align: center;
+}
+
+.content {
+  overflow-y: scroll;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  padding: 15px;
+}
