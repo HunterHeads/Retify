@@ -20,7 +20,7 @@ const client = {
 
   getCollection: async function (collectionName) {
     const databaseConnection = await client.getDB();
-    
+
     return databaseConnection.db(DB_NAME).collection(collectionName);
   },
 
@@ -80,19 +80,19 @@ const client = {
     );
   },
 
-  rateSong: async function (songId, userId, rate, callback) {
+  rateSong: async function (songId, userName, rate, callback) {
     const collection = await client.getCollection("SongsRates")
 
-    console.log(`attempt of rating song: ${songId} by user: ${userId}`)
+    console.log(`attempt of rating song: ${songId} by user: ${userName}`)
 
     collection.updateOne(
       {
-        userId: userId,
+        userName: userName,
         songId: songId,
       },
       {
         $set: {
-          userId: userId,
+          userName: userName,
           songId: songId,
           rate: rate,
         }
@@ -123,64 +123,78 @@ const client = {
       ]).next(callback)
   },
 
-  getSongRateForSpecificUser: async function (songId, userId, callback) {
+  getSongRateForSpecificUser: async function (songId, userName, callback) {
     const collection = await client.getCollection("SongsRates")
 
-    console.log(`getting rate for song: ${songId} and user: ${userId}`)
+    console.log(`getting rate for song: ${songId} and user: ${userName}`)
     collection.aggregate(
       [
         {
-          $match: { 
+          $match: {
             "songId": songId,
-            "userId": userId,
-         }
+            "userName": userName,
+          }
         },
         {
           $group: {
             _id: null,
-            songId: {$first: "$songId"},
-            userId: {$first: "$userId"},
-            rate: {$first: "$rate"},
+            songId: { $first: "$songId" },
+            userName: { $first: "$userName" },
+            rate: { $first: "$rate" },
           }
         },
       ]).next(callback)
   },
 
-  getArtistRateForSpecificUser: async function (artistId, userId, callback) {
+  getAllSongsRatesForSpecificUser: async function (userName, callback) {
+    const collection = await client.getCollection("SongsRates")
+
+    collection.aggregate(
+      [ { $match : { userName : `${userName}` } } ]
+    ).toArray().then(callback)
+  },
+
+  extractAllSongs: async function (callback) {
+    const collection = await client.getCollection("SongsRates")
+
+    collection.find().toArray(callback);
+  },
+
+  getArtistRateForSpecificUser: async function (artistId, userName, callback) {
     const collection = await client.getCollection("ArtistsRates")
 
-    console.log(`getting rate for song: ${artistId} and user: ${userId}`)
+    console.log(`getting rate for song: ${artistId} and user: ${userName}`)
     collection.aggregate(
       [
         {
-          $match: { 
+          $match: {
             "artistId": artistId,
-            "userId": userId,
-         }
+            "userName": userName,
+          }
         },
         {
           $group: {
             _id: null,
-            artistId: {$first: "$artistId"},
-            userId: {$first: "$userId"},
-            rate: {$first: "$rate"},
+            artistId: { $first: "$artistId" },
+            userName: { $first: "$userName" },
+            rate: { $first: "$rate" },
           }
         },
       ]).next(callback)
   },
 
-  rateArtist: async function (artistId, userId, rate, callback) {
+  rateArtist: async function (artistId, userName, rate, callback) {
     const collection = await client.getCollection("ArtistsRates")
 
-    console.log(`attempt of rating artist: ${artistId} by user: ${userId}`)
+    console.log(`attempt of rating artist: ${artistId} by user: ${userName}`)
 
     collection.updateOne(
       {
-        userId: userId,
+        userName: userName,
         artistId: artistId,
       },
       {
-        userId: userId,
+        userName: userName,
         artistId: artistId,
         rate: rate,
       },
@@ -208,6 +222,15 @@ const client = {
           }
         },
       ]).next(callback)
+  },
+
+
+  getAllArtistsRatesForSpecificUser: async function (userName, callback) {
+    const collection = await client.getCollection("ArtistsRates")
+
+    collection.aggregate(
+      [ { $match : { userName : `${userName}` } } ]
+    ).toArray().then(callback)
   },
 };
 
