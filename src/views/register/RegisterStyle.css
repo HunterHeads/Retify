@@ -1,24 +1,21 @@
-.container {
+.registerCon {
   position: absolute;
-  display: flex;
-  flex: 1;
-  overflow-y: hidden;
-  margin: 0;
-  height: 100%;
-  /* background: url('https://cdn.mos.cms.futurecdn.net/FUCaUWjnxVNkHrpZMwerSY-1200-80.jpg') */
-    /* no-repeat 100% 100% fixed; */
+  top: 0px;
+  left: 0px;
+  min-width: 100%;
+  min-height: 100%;
+  background-image: url('../../assets/blur.jpg');
+  background-size: 100% auto;
 }
 
 .register {
   position: absolute;
-  display: flex;
   flex-direction: column;
-  flex: 1;
   top: 50%;
-  left: 60%;
+  left: 53%;
   transform: translate(-50%, -50%);
   width: 75%;
-  height: 85%;
+  height: 80%;
   opacity: 0.9;
   border-radius: 20px;
   background-color: white;
@@ -30,7 +27,6 @@
 
 .header {
   display: flex;
-  flex: 1;
   font-size: 40px;
   padding: 15px;
 }
@@ -42,7 +38,12 @@
 }
 
 .content {
+  padding-top: 10%;
+  display: flex;
+  width: 75%;
+  flex: 1;
   overflow-y: scroll;
+  align-self: center;
   flex-direction: column;
   justify-content: center;
   align-items: center;

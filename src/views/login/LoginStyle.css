@@ -1,4 +1,4 @@
-.container {
+.loginCon {
   display: flexbox;
   flex: 1;
   overflow: hidden;
@@ -15,7 +15,7 @@
   width: 75%;
   height: 100%;
   background-size: cover;
-  background-image: url('https://cdn.mos.cms.futurecdn.net/FUCaUWjnxVNkHrpZMwerSY-1200-80.jpg');
+  background-image: url('../../assets/back.jpg');
   background-repeat: no-repeat;
   -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);
@@ -47,5 +47,5 @@
 .header {
   margin-bottom: 15px;
   color: #5e81f7;
-  font-size: 60px;
+  font-size: 65px;
 }

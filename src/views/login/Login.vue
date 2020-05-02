@@ -1,10 +1,10 @@
 <template>
-	<div class="container">
+	<div class="loginCon">
 		<div style="display: flex; flex: 1">
 			<div class="image"></div>
 			<div class="login">
 				<v-col offset-md="1">
-					<div class="header">{{printables.WELCOME}}</div>
+					<div class="header">{{ printables.WELCOME }}</div>
 					<v-card class="elevation-12" width="90%" height="45%">
 						<v-toolbar :color="primaryColor" dark flat>
 							<v-toolbar-title>{{
