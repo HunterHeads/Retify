@@ -23,7 +23,7 @@ export default {
                 {
                     title: "Piosenki",
                     icon: "$vuetify.icons.music",
-                    to: "/songs",
+                    to: "/browseSongs",
                 },
                 {
                     title: "Słuchaj",
