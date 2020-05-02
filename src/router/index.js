@@ -5,6 +5,7 @@ import TopRated from '../views/topRated/TopRated.vue';
 import Login from '../views/login/Login.vue';
 import BrowseSongs from '../views/browseSongs/BrowseSongs.vue';
 import Settings from '../views/settings/Settings.vue';
+import Register from '../views/register/Register.vue'
 import { logout } from '../api/loginService';
 import store from '../store';
 import { NotificationType } from '../enums/NotificationTypeEnum';
@@ -17,6 +18,11 @@ const routes = [
     name: 'Dashboard',
     component: Dashboard,
     beforeEnter: isAuthenticated,
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register,
   },
   {
     path: '/top-rated',

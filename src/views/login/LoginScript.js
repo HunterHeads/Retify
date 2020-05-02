@@ -4,7 +4,7 @@ export default {
     data() {
         return {
             rememberMe: false,
-
+            primaryColor: '#5e81f7',
             form: {
                 username: "",
                 password: "",
