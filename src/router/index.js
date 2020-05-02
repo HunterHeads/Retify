@@ -45,7 +45,7 @@ const routes = [
         beforeEnter: isAuthenticated,
     },
     {
-        path: "/browse-songs",
+        path: "/browseSongs",
         name: "BrowseSongs",
         component: BrowseSongs,
         beforeEnter: isAuthenticated,

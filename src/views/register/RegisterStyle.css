@@ -5,8 +5,8 @@
   overflow-y: hidden;
   margin: 0;
   height: 100%;
-  background: url('https://cdn.mos.cms.futurecdn.net/FUCaUWjnxVNkHrpZMwerSY-1200-80.jpg')
-    no-repeat 100% 100% fixed;
+  /* background: url('https://cdn.mos.cms.futurecdn.net/FUCaUWjnxVNkHrpZMwerSY-1200-80.jpg') */
+    /* no-repeat 100% 100% fixed; */
 }
 
 .register {

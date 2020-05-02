@@ -9,6 +9,17 @@ export default {
                 username: "",
                 password: "",
             },
+            printables: {
+                WELCOME: "Witaj w Retify!",
+                SIGN_IN: "Zaloguj się",
+                LOGIN: "Login",
+                PASSWORD: "Hasło",
+                REMEMBER: "Pamiętaj mnie",
+                LOGIN_BUTTON: "Zaloguj",
+                SIGN_UP: "Zarejestruj się",
+                SIGN_UP_SPOTIFY: "Zaloguj się ze Spotify",
+                FORGOT_PASSWORD: "Zapomniałeś hasła?"
+            }
         };
     },
     methods: {
