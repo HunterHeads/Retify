@@ -37,11 +37,6 @@ export default {
                 icon: "$vuetify.icons.star",
                 to: "/top-rated",
             },
-            // {
-            //     title: "Artyści",
-            //     icon: "$vuetify.icons.artist",
-            //     to: "/artists",
-            // },
             {
                 title: "Ocenione",
                 icon: "$vuetify.icons.music",
