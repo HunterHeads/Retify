@@ -1,9 +1,10 @@
 <template>
-    <v-app style="background-color: #58ACE5;">
+    <v-app>
+        <loading-overlay />
         <notification-component />
-        <navigation-bar />
+        <navigation-bar v-if="isLogged"/>
 
-        <v-content>
+        <v-content :style="`background-color: ${this.backgroundColor}`">
             <v-container fluid>
                 <div id="app">
                     <div id="nav"></div>
@@ -13,5 +14,4 @@
         </v-content>
     </v-app>
 </template>
-<script src="./AppScript.js"></script>
-<style src="./AppStyle.css"></style>
+<script src="./AppScript.js">

@@ -1,9 +1,63 @@
 .dash {
-    margin-left: 120px;
-    background-color: #58ace5;
+  margin: 55px;
+  flex: 1;
+  display: 'flex';
 }
 
-.card {
-    border-radius: 15px;
-    background-color: #209eef;
+.rateCard {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  max-height: 500px;
+  margin-right: 16px;
+  border-radius: 5px;
+}
+
+.friendsCard {
+  display: flex;
+  flex-direction: column;
+  flex: 0.75;
+  justify-content: center;
+  align-items: center;
+  max-height: 500px;
+  margin-right: 16px;
+  border-radius: 5px;
+}
+
+.friend {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: #c0e1f7;
+  cursor: pointer;
+  height: 60px;
+  width: 250px;
+  margin: 5px;
+  padding: 7px;
+  border-radius: 25px;
+  box-shadow: -1px 2px 4px -2px rgba(0, 0, 0, 0.81);
+}
+
+.rateSongItem {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: #c0e1f7;
+  margin: 5px;
+  padding: 5px;
+  max-height: 50px;
+  max-width: 360px;
+  border-radius: 25px;
+  box-shadow: -1px 2px 4px -2px rgba(0, 0, 0, 0.81);
+}
+
+.cardContent {
+    display: flex;
+    flex: 1;
+    max-height: 250px;
+    overflow-y: scroll;
 }

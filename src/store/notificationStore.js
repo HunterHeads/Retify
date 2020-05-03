@@ -1,9 +1,10 @@
-import { NotificationType } from "../enums/NotificationTypeEnum";
+import { NotificationType } from "../enums";
 
 const initialState = () => ({
     message: "",
     type: "",
     isVisible: false,
+    timeoutId: null,
 });
 
 export default {
@@ -26,13 +27,22 @@ export default {
         showNotification(state) {
             state.isVisible = true;
         },
+        setTimeoutId(state, payload) {
+            state.timeoutId = payload.timeoutId;
+        },
+        clearTimeout(state) {
+            clearTimeout(state.timeoutId);
+            state.timeoutId = null;
+        },
     },
     actions: {
         showNotification({ commit }, { message, type }) {
+            // commit("clearTimeout");
             commit("setMessage", { message });
             commit("setType", { type });
             commit("showNotification");
             setTimeout(() => commit("hideNotification"), 5000);
+            // commit("setTimeoutId", { timeoutId });
         },
     },
 };

@@ -1,6 +1,7 @@
 div.notification {
     position: fixed;
     right: 0;
+    z-index: 10000;
 }
 
 .message {

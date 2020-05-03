@@ -1,0 +1,51 @@
+.loginCon {
+  display: flexbox;
+  flex: 1;
+  overflow: hidden;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.image {
+  position: absolute;
+  top: 0%;
+  left: -20%;
+  align-self: flex-start;
+  width: 75%;
+  height: 100%;
+  background-size: cover;
+  background-image: url('../../assets/back.jpg');
+  background-repeat: no-repeat;
+  -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);
+}
+
+.login {
+  position: absolute;
+  display: flex;
+  top: 10%;
+  right: 0;
+  width: 40%;
+  height: 87vh;
+}
+
+.buttons {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.button {
+  margin-right: 15px;
+}
+
+.header {
+  margin-bottom: 15px;
+  color: #5e81f7;
+  font-size: 65px;
+}

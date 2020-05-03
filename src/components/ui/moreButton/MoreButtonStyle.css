@@ -1,0 +1,20 @@
+.more {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    max-height: 40px;
+    margin: 5px;
+    padding: 10px;
+    border-style: solid;
+    border-radius: 25px;
+    border-width: 2px;
+    border-color: #6fc2fa;
+}
+
+.button-title {
+    display: flex;
+    font-weight: bold;
+    color: #6fc2fa;
+}

@@ -1,0 +1,56 @@
+.registerCon {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  min-width: 100%;
+  min-height: 100%;
+  background-image: url('../../assets/blur.jpg');
+  background-size: 100% auto;
+}
+
+.register {
+  position: absolute;
+  flex-direction: column;
+  top: 50%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 80%;
+  opacity: 0.75;
+  border-radius: 20px;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  font-size: 55px;
+  padding: 15px;
+  font-family: 'Poppins';
+}
+
+.date {
+  font-size: 20px;
+  padding: 15px;
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  padding-top: 200px;
+  height: 100%;
+  width: 75%;
+  overflow-y: scroll;
+  align-self: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  padding: 15px;
+}
