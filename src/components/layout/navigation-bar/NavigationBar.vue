@@ -12,9 +12,6 @@
 		absolute
 		dark
 	>
-		<v-btn text @click="loginWithSpotify">
-			{{ printables.LOGIN_WITH_SPOTIFY }}
-		</v-btn>
 		<v-list dense nav class="py-0">
 			<v-list-item two-line :class="miniVariant && 'px-0'">
 				<v-list-item-avatar>
