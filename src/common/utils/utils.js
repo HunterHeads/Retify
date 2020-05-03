@@ -8,7 +8,7 @@ export function showNotification(message, type) {
 }
 
 export function showLoadingOverlay() {
-    store.dispatch("commonStore/showLoading");
+    // store.dispatch("commonStore/showLoading");
 }
 
 export function hideLoadingOverlay() {

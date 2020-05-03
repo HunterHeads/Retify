@@ -1,6 +1,6 @@
 // import store from "../store";
 import axios from "axios";
-const serverUrl = "http://localhost:8000";
+const serverUrl = "https://retify-deploy.herokuapp.com";
 
 export async function getMyRecentlyPlayedTracks() {
     return axios(`${serverUrl}/api/spotify/me/recently-played`, {

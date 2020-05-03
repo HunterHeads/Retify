@@ -1,7 +1,7 @@
 import store from "../store";
 import router from "../router";
 import axios from "axios";
-const serverUrl = "http://localhost:8000";
+const serverUrl = "https://retify-deploy.herokuapp.com";
 import { NotificationType } from "../enums";
 import {
     showNotification,

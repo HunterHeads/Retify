@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import axios from "axios";
-const serverUrl = "http://localhost:8000";
+const serverUrl = "https://retify-deploy.herokuapp.com";
 
 export async function getAlbumSongs(id) {
     return axios(`${serverUrl}/api/spotify/albums/${id}/songs`, {
