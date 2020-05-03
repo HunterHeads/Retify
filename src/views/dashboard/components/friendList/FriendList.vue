@@ -1,12 +1,11 @@
 <template>
-	<div class="friendList">
-		<v-list width="85%" height="100%">
-			<v-list-item v-for="(friend, i) in friends" :key="i">
-				<FriendItem :friend="friend" />
-			</v-list-item>
-			<v-list-item> </v-list-item>
-		</v-list>
-	</div>
+	<v-list>
+		<v-list-item v-for="(friend, i) in friends" :key="i">
+			<FriendItem :friend="friend" />
+		</v-list-item>
+		<v-list-item>
+			<MoreButton :title="titles.more" :onClick="onMoreFriends" />
+		</v-list-item>
+	</v-list>
 </template>
 <script src="./FriendListScript.js"></script>
-<style src="./FriendListStyle.css"/>

@@ -5,7 +5,7 @@
 				<FriendList :friends="friends" :onFriend="onFriend" />
 			</Card>
 
-			<Card class="rateCard" :cardTitle="titles.rateSongs">
+			<Card class="card" :cardTitle="titles.rateSongs">
 				<RateSongList
 					:songs="songs"
 					:onSongRated="onSongRated"
