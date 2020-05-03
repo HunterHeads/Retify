@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="card">
-            <v-card width="100%" height="100vw">
+            <v-card width="100%">
                 <div class="picker">
                     <div class="text">
                         Wybierz aktualne tło w aplikacji
