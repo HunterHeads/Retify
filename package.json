@@ -12,7 +12,7 @@
     "server": "cd server && nodemon --ignore \"sessions/*\" app.js"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "concurrently": "^5.1.0",
     "core-js": "^3.6.4",
     "express-session": "^1.17.0",
